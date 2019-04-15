@@ -15,3 +15,10 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: FunctionApp3'
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    ArtifactName: FunctionApp3
