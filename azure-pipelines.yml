@@ -11,9 +11,9 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
+  msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet msbuild $(msbuildArgs) --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 
