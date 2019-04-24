@@ -29,7 +29,6 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
       **\bin\$(buildConfiguration)\**
-      src\*.testsettings
-    TargetFolder: $(Build.ArtifactStagingDirectory)'
-  Condition: SucceededOrFailed()
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  condition: succeededOrFailed()
   
