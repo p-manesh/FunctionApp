@@ -12,7 +12,7 @@ namespace FunctionApp3
 {
     public static class Function1
     {
-        [FunctionName("Test2")]
+        [FunctionName("Test3")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -26,7 +26,7 @@ namespace FunctionApp3
             name = name ?? data?.name;
 
             return name != null
-                ? (ActionResult)new OkObjectResult($"Hello, {name}, How are you?")
+                ? (ActionResult)new OkObjectResult($"Hello, {name}")
                 : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
         }
     }
