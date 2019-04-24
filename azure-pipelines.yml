@@ -23,4 +23,13 @@ steps:
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
-
+- task: CopyFiles@1
+  displayName: 'Copy Files to $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **\bin\$(buildConfiguration)\**
+      src\*.testsettings
+    TargetFolder: $(Build.ArtifactStagingDirectory)'
+  Condition: SucceededOrFailed()
+  
